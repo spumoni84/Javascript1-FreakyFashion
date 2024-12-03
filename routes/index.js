@@ -19,6 +19,8 @@ router.get('/admin/products', function (req, res, next) {
 
 // GET /admin/products/load - API endpoint to load all products
 router.get('/admin/products/load', function (req, res, next) {
+  let limit;
+if (req.query.limit !== undefined) {limit = parseInt(req.query.limit);}
   const rows = db.prepare(`
     SELECT id,
           name,
@@ -28,7 +30,7 @@ router.get('/admin/products/load', function (req, res, next) {
           SKU,
           price,
           publishingDate
-    FROM products
+    FROM products ${limit ? `LIMIT ${limit}` : ''}
   `).all();
 
   res.json(rows);

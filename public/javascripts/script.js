@@ -1,3 +1,78 @@
+function loadProducts(event) {
+        if (event) {
+            event.preventDefault();
+        }
+
+        const windowWidth = window.innerWidth;console.log(`Window width is: ${windowWidth}px`);
+ 
+const windowWidth = window.innerWidth;
+ 
+        
+        fetch('/admin/products/load?limit=8')
+            .then(response => response.json())
+            .then(products => {
+                console.log(products);
+                const productList = document.getElementById('product-lists');
+                productList.innerHTML = '';
+                products.forEach(product => {
+                    const card = document.createElement('div');
+                    const link = document.createElement('a');
+                    link.href = 'product-details.html';
+                    card.appendChild(link);
+                    const cardInner = document.createElement('div');
+
+                    const newOverlay = document.createElement('div');
+                    const heartOlveray = document.createElement('div');
+                    const image = document.createElement('img');
+                    const productHeader = document.createElement('div');
+
+                    row.innerHTML = `
+                        <td>${product.name}</td>
+                        <td>${product.sku}</td>
+                        <td>${product.price}</td>
+                        <td><img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px;"></td>
+                        <td>${product.brand}</td>
+                        <td><a href="/admin/products/edit/${product.id}">Edit</a></td>
+                    `;
+                    productList.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error loading products:', error));
+    }
+    
+    loadProducts();
+
+/*
+<div>
+<a href="product-details.html" class="product-link">
+            <div class="product">
+                <div class="new-overlay">Nyhet</div>
+                <div class="heart-overlay"><i class="fas fa-heart"></i></div>
+                <img src="/img/Army-green-troja.webp" alt="Army green troja">
+                <div class="product-header">
+                    <h3>Arme grön tröja</h3>
+                    <p class="price">449 SEK</p>
+                </div>
+                <p>Levis</p>
+            </div>
+            </a>
+            </div>
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* document.addEventListener('DOMContentLoaded', function() {
     const heartOverlays = document.querySelectorAll('.heart-overlay i');
 

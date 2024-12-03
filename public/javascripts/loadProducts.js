@@ -11,7 +11,7 @@ function loadProducts(event) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${product.name}</td>
-                    <td>${product.SKU}</td>
+                    <td>${product.sku}</td>
                     <td>${product.price}</td>
                     <td><img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px;"></td>
                     <td>${product.brand}</td>
