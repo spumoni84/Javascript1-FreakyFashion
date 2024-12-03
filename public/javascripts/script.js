@@ -2,12 +2,6 @@ function loadProducts(event) {
         if (event) {
             event.preventDefault();
         }
-
-        const windowWidth = window.innerWidth;console.log(`Window width is: ${windowWidth}px`);
- 
-const windowWidth = window.innerWidth;
- 
-        
         fetch('/admin/products/load?limit=8')
             .then(response => response.json())
             .then(products => {
@@ -21,8 +15,8 @@ const windowWidth = window.innerWidth;
                     card.appendChild(link);
                     const cardInner = document.createElement('div');
 
-                    const newOverlay = document.createElement('div');
-                    const heartOlveray = document.createElement('div');
+                    const new-Overlay = document.createElement('div');
+                    const heart-Overlay = document.createElement('div');
                     const image = document.createElement('img');
                     const productHeader = document.createElement('div');
 

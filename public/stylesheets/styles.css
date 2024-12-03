@@ -598,17 +598,11 @@ input[type="submit"]:hover {
     background-color: #858885;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* Base styles */
+.product-card {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
 /* Media query for min-width 640px */
 @media (min-width: 640px) {
@@ -771,6 +765,14 @@ input[type="submit"]:hover {
         font-size: 1em;
         color: #333;
     }
+
+    /* Breakpoint at > 640px */
+@media (min-width: 640px) {
+    .product-card {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+}
 
     /* Accordion styles for min-width 640px */
 .accordion-lg {
@@ -959,12 +961,10 @@ input[type="submit"]:hover {
         }
     }
 
-
-
-
-
-    
-
-    
-
-   
+    /* Breakpoint at > 1024px */
+@media (min-width: 1024px) {
+    .product-card {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+}
